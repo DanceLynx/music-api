@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
 
-class CoverResource extends JsonResource
+class SongResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,10 +18,12 @@ class CoverResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'cover_image_url' => Storage::disk('qiniu')->url($this->cover_image_url),
-            'play_count' => $this->play_count,
-            'created_at' => (string) $this->created_at,
-            'songs' => SongResource::collection($this->whenLoaded('songs')),
+            'pic_url' => Storage::disk('qiniu')->url($this->pic_url),
+            'url' => Storage::disk('qiniu')->url($this->url),
+            'lyric' => $this->lyric?:"该歌曲歌词走丢了~~",
+            'dt' => $this->dt,
+            'cover' => new CoverResource($this->whenLoaded('cover')),
+            'singer' => new SingerResource($this->whenLoaded('singer')),
         ];
     }
 }

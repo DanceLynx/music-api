@@ -52,8 +52,20 @@ Route::name('api.v1.')
                 // 获取所有歌手
                 Route::get('singers','SingersController@index')
                     ->name('singers.index');
+                // 获取单个歌手
+                Route::get('singers/{singer}','SingersController@show')
+                    ->name('singers.show');
                 // 获取所有歌单
                 Route::get('covers','CoversController@index')
                     ->name('covers.index');
+                // 获取单个歌单
+                Route::get('covers/{cover}','CoversController@show')
+                    ->name('covers.show');
+                // 获取歌手下所有歌曲
+                Route::get('singers/{singer}/songs','SongsController@singerIndex')
+                    ->name('singers.index.index');
+                // 获取单个歌曲
+                Route::get('songs/{song}','SongsController@show')
+                    ->name('songs.show');
             });
     });

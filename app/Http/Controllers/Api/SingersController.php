@@ -12,4 +12,10 @@ class SingersController extends Controller
         $singers = $query->paginate();
         return SingerResource::collection($singers) ;
     }
+
+    public function show($singerId , SingerQuery $query)
+    {
+        $singer = $query->findOrFail($singerId);
+        return new SingerResource($singer);
+    }
 }
