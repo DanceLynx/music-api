@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\CoverResource;
 use App\Queries\CoverQuery;
+use Illuminate\Http\Request;
 
 class CoversController extends Controller
 {
-    public function index(CoverQuery $query)
+    public function index(Request $request,CoverQuery $query)
     {
-        $covers = $query->paginate();
+        $perPage = intval($request->limit) ?:15;
+        $covers = $query->paginate($perPage);
         return CoverResource::collection($covers);
     }
 

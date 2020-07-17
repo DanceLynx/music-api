@@ -9,6 +9,7 @@ class CoverQuery extends QueryBuilder
     public function __construct()
     {
         parent::__construct(Cover::query());
-        $this->allowedIncludes(['songs']);
+        $this->allowedIncludes(['songs'])
+            ->allowedFilters(['is_hot','is_recommend']);
     }
 }

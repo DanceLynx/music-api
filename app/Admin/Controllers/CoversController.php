@@ -28,6 +28,8 @@ class CoversController extends AdminController
 
         $grid->column('id', '序号');
         $grid->column('name', '歌单名');
+        $grid->column('is_hot','是否热门')->switch();
+        $grid->column('is_recommend','是否推荐')->switch();
         $grid->column('play_count', '播放数');
         $grid->column('created_at', '添加时间');
 
@@ -64,6 +66,8 @@ class CoversController extends AdminController
         $form = new Form(new Cover());
 
         $form->image('cover_image_url', '歌单封面');
+        $form->switch('is_hot','是否推荐');
+        $form->switch('is_recommend','是否推荐');
         $form->text('name', '歌单名');
 
         return $form;

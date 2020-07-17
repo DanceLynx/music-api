@@ -6,14 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cover extends Model
 {
-    const STATUS_START = 0;
-    const STATUS_PASS = 1;
-    const STATUS_UNPASS = 2;
-
-    static $StatusOptions = [
-        self::STATUS_START => '未处理',
-        self::STATUS_PASS => '通过',
-        self::STATUS_UNPASS => '未通过',
+    const IS_RECOMMEND_NO = 0;
+    const IS_RECOMMEND_YES = 1;
+    const IS_HOT_NO = 0;
+    const IS_HOT_YES = 0;
+    static $isRecommendOptions = [
+        self::IS_RECOMMEND_NO => '是',
+        self::IS_RECOMMEND_YES =>'否',
+    ];
+    static $isHotOptions = [
+        self::IS_HOT_NO => '是',
+        self::IS_HOT_YES => '否',
     ];
 
 
