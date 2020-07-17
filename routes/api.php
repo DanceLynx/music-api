@@ -49,7 +49,11 @@ Route::name('api.v1.')
 
         Route::middleware('throttle:' . config('api.rate_limits.access'))
             ->group(function () {
+                // 获取所有歌手
                 Route::get('singers','SingersController@index')
                     ->name('singers.index');
+                // 获取所有歌单
+                Route::get('covers','CoversController@index')
+                    ->name('covers.index');
             });
     });
