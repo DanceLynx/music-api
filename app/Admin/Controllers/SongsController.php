@@ -39,7 +39,7 @@ class SongsController extends AdminController
             if(empty($value)) return $value;
             return intval($value) / 600;
         });
-        $grid->column('cover_id', '歌单')->using($covers);
+        $grid->column('cover_id', '歌单')->editable('select',$covers);
         $grid->column('singer_id', '歌手')->using($singers);
         $grid->column('created_at', '创建时间');
 

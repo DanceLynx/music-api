@@ -49,6 +49,7 @@ Route::name('api.v1.')
 
         Route::middleware('throttle:' . config('api.rate_limits.access'))
             ->group(function () {
-
+                Route::get('singers','SingersController@index')
+                    ->name('singers.index');
             });
     });
