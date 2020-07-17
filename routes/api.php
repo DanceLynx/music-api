@@ -67,5 +67,8 @@ Route::name('api.v1.')
                 // 获取单个歌曲
                 Route::get('songs/{song}','SongsController@show')
                     ->name('songs.show');
+                // 获取轮播图
+                Route::get('carousels','CarouselsController@index')
+                    ->name('carousels.index');
             });
     });
