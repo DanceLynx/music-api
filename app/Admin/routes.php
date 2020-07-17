@@ -15,5 +15,6 @@ Route::group([
     $router->resource('singers', SingersController::class);
     $router->resource('covers', CoversController::class);
     $router->resource('songs', SongsController::class);
+    $router->resource('carousels', CarouselsController::class);
 
 });
