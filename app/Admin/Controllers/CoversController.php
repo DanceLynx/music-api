@@ -65,10 +65,11 @@ class CoversController extends AdminController
     {
         $form = new Form(new Cover());
 
-        $form->image('cover_image_url', '歌单封面');
+        $form->text('name', '歌单名');
         $form->switch('is_hot','是否推荐');
         $form->switch('is_recommend','是否推荐');
-        $form->text('name', '歌单名');
+        $form->textarea('description','歌单简介');
+        $form->image('cover_image_url', '歌单封面');
 
         return $form;
     }

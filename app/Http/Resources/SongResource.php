@@ -20,7 +20,7 @@ class SongResource extends JsonResource
             'name' => $this->name,
             'pic_url' => Storage::disk('qiniu')->url($this->pic_url),
             'url' => Storage::disk('qiniu')->url($this->url),
-            'lyric' => $this->lyric?:"该歌曲歌词走丢了~~",
+            'lyric' => $this->lyric,
             'dt' => $this->dt,
             'cover' => new CoverResource($this->whenLoaded('cover')),
             'singer' => new SingerResource($this->whenLoaded('singer')),
